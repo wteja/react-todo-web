@@ -1,0 +1,100 @@
+$primary-color: rgb(31, 47, 141);
+$active-color: rgb(197, 149, 45);
+
+#todo {
+  background-color: white;
+  width: 100%;
+  max-width: 320px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  button,
+  input[type="submit"] {
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    user-select: none;
+  }
+
+  .todo-input {
+    width: 100%;
+
+    form {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    input[type="text"] {
+      margin-right: 5px;
+      border-radius: 5px;
+      outline: none;
+      padding: 5px;
+      flex: 1 1 auto;
+    }
+  }
+
+  .todo-list {
+    min-height: 50px;
+    list-style: none;
+    padding: 10px 20px;
+    margin: 0;
+
+    .todo-item {
+      user-select: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+
+      &.completed {
+        text-decoration: line-through;
+      }
+
+      .text {
+        flex: 1;
+        margin-right: 5px;
+      }
+
+      .delete {
+        background-image: url(../assets/images/trash.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+    }
+  }
+
+  .todo-filter {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    button {
+      flex: 1;
+
+      &.active {
+        background-color: $active-color;
+        border-color: $active-color;
+      }
+
+      & + button {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #todo {
+    top: 100px;
+    max-width: 500px;
+  }
+}
